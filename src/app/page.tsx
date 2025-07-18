@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import PWAFeatures from "./components/PWAFeatures";
+import NotificationTimer from "./components/NotificationTimer";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -42,11 +42,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            PWA Demo App
+            📱 PWA 通知タイマー
           </h1>
           <div className="flex items-center gap-4 mt-2">
             <span className={`px-3 py-1 text-sm rounded-full ${
@@ -59,26 +59,27 @@ export default function Home() {
             {installPrompt && (
               <button
                 onClick={handleInstall}
-                className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700"
+                className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors"
               >
-                アプリをインストール
+                📱 アプリをインストール
               </button>
             )}
           </div>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-            PWA機能デモ
+      <main className="max-w-2xl mx-auto px-4 py-8">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg p-6 mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            定期プッシュ通知アプリ
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            このアプリではPWAの主要機能を体験できます。各機能を試してみてください。
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
+            設定した時間間隔で自動的にプッシュ通知を送信します。
+            タブを閉じてもバックグラウンドで動作し続けます。
           </p>
         </div>
 
-        <PWAFeatures />
+        <NotificationTimer />
       </main>
     </div>
   );

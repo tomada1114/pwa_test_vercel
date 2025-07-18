@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PWA Demo App",
-  description: "Next.js PWAのデモアプリケーション",
+  title: "PWA 通知タイマー",
+  description: "定期的にプッシュ通知を送信するPWAアプリ",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "PWA Demo"
+    title: "通知タイマー"
   },
   icons: {
     icon: [
@@ -36,7 +36,7 @@ export function generateViewport() {
     initialScale: 1,
     maximumScale: 1,
     userScalable: false,
-    themeColor: '#000000'
+    themeColor: '#2563eb'
   }
 }
 
@@ -49,10 +49,10 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PWA Demo" />
+        <meta name="apple-mobile-web-app-title" content="通知タイマー" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
       <body
